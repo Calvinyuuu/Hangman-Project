@@ -1,1 +1,1 @@
-html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}.container{display:flex;max-width:1024px;justify-content:center}img{max-width:100%;height:auto}.disclaimer{width:300px;padding:10px;background-color:indianred;color:white;border:solid 1px black;box-shadow:0px 0px 5px yellow, 5px 5px 5px black;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);opacity:0;pointer-events:none}

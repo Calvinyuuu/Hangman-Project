@@ -4,9 +4,12 @@ let wordToBeGuessed;
 let updateAnswer;
 let numberOfLetters;
 let isGameLive;
-let displayHint = document.getElementById("hint");
-let keyboard = document.getElementById("keyboard");
-let underscore = document.getElementById("underscore");
+
+const displayHint = document.getElementById("hint");
+const keyboard = document.getElementById("keyboard");
+const underscore = document.getElementById("underscore");
+const scene = document.getElementById("picture");
+
 const maxErrors = 6;
 let correctGuesses = 0;
 let incorrectGuesses = 0;
@@ -64,6 +67,7 @@ function letterSelected(event){
     
     if(correctAnswer != true){
         incorrectGuesses++
+        changeScene();
     }
     console.log(incorrectGuesses + `incorrect`);
     console.log(correctGuesses + `correct`);
@@ -82,6 +86,10 @@ function isGameValid(){
         loseGame();
         console.log(`lose`);
     }
+}
+
+function changeScene(){
+    scene.src = `../pictures/mistake_0${incorrectGuesses}.png`
 }
 
 function winGame(){
