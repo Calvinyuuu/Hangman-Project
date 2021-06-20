@@ -3,29 +3,34 @@
 let wordToBeGuessed;
 let updateAnswer;
 let numberOfLetters;
-let isGameLive;
 
 const displayHint = document.getElementById("hint");
 const keyboard = document.getElementById("keyboard");
 const underscore = document.getElementById("underscore");
 const scene = document.getElementById("picture");
+const displayErrors = document.getElementById("errors");
+const postGame = document.getElementById("post_game_screen");
+const playAgain = document.getElementById("close_button");
+let words;
+let hints; 
 
 const maxErrors = 6;
 let correctGuesses = 0;
 let incorrectGuesses = 0;
+let opacity = 0;
 
 class Game{
     constructor(){
-        this.words = ["potato", "apple", "grape", "banana", "grapefruit"];
-        this.hints = ["brown", "red", "purple", "yellow", "reddish"];
+        words = ["potato", "apple", "grape", "banana", "grapefruit"];
+        hints = ["brown", "red", "purple", "yellow", "reddish"];
         numberOfLetters = [];
-        chooseWord(this.words, this.hints);
+        chooseWord();
         createButtons();
         replaceUnderscore();
     }
 }
 
-function chooseWord(words, hints){
+function chooseWord(){
     let chosenWordIndex = Math.floor(Math.random() * words.length)
     wordToBeGuessed = words[chosenWordIndex];
     displayHint.innerHTML = hints[chosenWordIndex];
@@ -89,21 +94,34 @@ function isGameValid(){
 }
 
 function changeScene(){
-    scene.src = `../pictures/mistake_0${incorrectGuesses}.png`
+    scene.src = `../pictures/mistake_0${incorrectGuesses}.png`;
+    displayErrors.innerHTML = `Incorrect Guesses ${incorrectGuesses}/6`;
 }
 
 function winGame(){
-//display win message
-//display restart
+fade();
 //goto restartGame()
 }
 function loseGame(){
-//display lose message
-//display restart
-//goto restartGame()
+fade();
 }
 function restartGame(){
 
+
 }
+function fade(){
+    if(opacity < 1){
+        opacity += 0.1;
+        setTimeout(() => {
+            fade();
+        }, 50);
+    }
+    postGame.style.opacity = opacity;
+}
+playAgain.addEventListener('click', ()=>{
+    postGame.style.opacity = '0';
+    playAgain.style.pointerEvents = 'none';
+    restartGame();
+})
 
 const game01 = new Game();

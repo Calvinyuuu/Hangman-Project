@@ -1,19 +1,42 @@
+$primary_color_gradient:rgba(148,187,233,1);
+$secondary_color_gradient:rgba(238,174,202,1);
+
+$primary_color:rgb(148,187,233);
+$secondary_color:rgb(238,174,202);
+
 html {
     box-sizing: border-box;
+    background: $secondary_color;
+    background: radial-gradient(circle, $secondary_color_gradient 0%, $primary_color_gradient 100%);
+    font-family: 'Amatic SC', cursive;
 }
 *, *:before, *:after {
     box-sizing: inherit;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+button{
+    font-family: 'Amatic SC', cursive;
 }
 
 .container{
     display: flex;
     max-width: 1024px;
     justify-content: center;
+    flex-direction: column;
+    margin: auto;
 }
-
 img{
     max-width: 100%;
     height: auto;
+    margin: none;
+    padding: none;
+}
+footer{
+    text-align: center;
 }
 
 .disclaimer{
@@ -24,10 +47,50 @@ img{
     border:solid 1px black;
     box-shadow:0px 0px 5px yellow, 5px 5px 5px black;
     position:absolute;
-    top:50%;
-    left:50%;
+    top:40%;
+    left:45%;
     transform:translate(-50%, -50%);
     opacity:0;
-    pointer-events: none;
+}
+.post_game_screen{
+    opacity: 0;
+    width: 600px;
+    height: 480px;
+    border: solid, 1px, black;
+    position: absolute;
+    background-color: white;
+    top: 12%;
+    left: 32%;
+    text-align: center;
+    box-shadow:0px 0px 15px darkgrey, 15px 15px 15px black;
+    background-image: url(../pictures/mistake_06.png);
+}
+.keyboard_container button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px 13px;
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background-image: url(../pictures/scratch_button_02.png);
+    font-size: 40px;
+}
+.keyboard_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.information_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: x-large;
+    font-weight: bold;
+}
+.hint_container{
+    display: flex;
+    justify-content: center;
+    font-size: large;
 }
 

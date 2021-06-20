@@ -6,31 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman | Calvin Yu | COMP 2132</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">    
 </head>
 <body>
     <div class="container">
         <header>
-            <h1></h1>
+            <h2>DDLC inspiried Hangman</h2>
         </header>
         <main>
             <section>
-                <section id="disclaimer">
+                <section class="disclaimer">
                     <h2>Disclaimer </h2>
+                    
                     <p>This game is meant for people ages 13+. It is not a game meant for people experiencing depression or suicide. All characters in this game are fictional and is meant to only be a front to how this game of hangman can play out. If you are experiencing any form of depression or thoughts of suicide, please contact a help line.</p>
+                    <button class="close_button">I Acknowledge</button>
                 </section>
-                <div><p>Try to guess the word</p></div>
+                <section id="post_game_screen" class="post_game_screen">
+                    <h2 id="post_game_placeholder">placeholder</h2>
+                    <button id="close_button">Play again?</button>
+                </section>
+
 
                 <figure>
                     <img src="../pictures/mistake_00.png" alt="background" id="picture">
                 </figure>
 
-                <p id="hint"></p>
-                <p id="underscore">underscore</p>
-                <div id="keyboard"></div>
+                <div class="information_container">
+                    <p id="underscore"></p>
+                    <p id="errors">Incorrect Guesses 0/6</p>
+                </div>
+                <div id="hint" class="hint_container"></div>
+                <div id="keyboard" class="keyboard_container"></div>
+                <section class="instructions">
+                    <h3>Instructions</h3>
+                    <p>This is a simple hangman game. With a hint and a number of guesses, click on a button of your choice to guess which letters are in the given word. After 6 incorrect guesses, it's a gameover. Have fun!</p>
+                </section>
                 
             </section>
         </main>
-        <footer></footer>
+        <footer>COMP 2132</footer>
     </div>
 </body>
 <script src="../js/core.js"></script>
