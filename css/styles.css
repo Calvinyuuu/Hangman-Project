@@ -41,39 +41,41 @@ footer {
 }
 
 .disclaimer {
-  opacity: 1;
-  width: 400px;
-  padding: 10px;
-  font-size: 25px;
-  background-color: plum;
   color: white;
-  border: solid 1px black;
-  box-shadow: 0px 0px 5px darkgrey, 5px 5px 5px black;
+  box-shadow: 0px, 0px, 10px, darkgrey;
+  width: 400px;
+  height: auto;
   position: absolute;
   top: 20%;
   left: 38%;
   z-index: 1001;
+  opacity: 1;
+  font-size: 25px;
+  background-color: plum;
+  border: solid, 1px, black;
+  padding: 10px;
 }
 
 .post_game_screen {
-  opacity: 0;
-  z-index: 1001;
   width: 600px;
   height: 480px;
-  border: solid, 1px, black;
   position: absolute;
-  background-color: white;
   top: 12%;
   left: 32%;
-  text-align: center;
-  box-shadow: 0px 0px 20px white;
-  background-image: url(../pictures/mistake_00.png);
-  pointer-events: none;
+  z-index: 1001;
+  opacity: 0;
   font-size: 30px;
+  background-color: white;
+  border: solid, 1px, black;
+  text-align: center;
+  box-shadow: 0, 0, 20px, white;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: inherit;
+  background-image: url(../pictures/mistake_00.png);
+  flex-direction: column;
   background-size: contain;
+  pointer-events: none;
 }
 
 .post_game_screen p {
@@ -89,11 +91,11 @@ footer {
 
 .keyboard_container button {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 3px 13px;
+  justify-content: center;
   width: 48px;
   height: 48px;
+  margin: 3px 13px;
   border-radius: 15px;
   background-image: url(../pictures/scratch_button_02.png);
   font-size: 40px;
@@ -124,18 +126,18 @@ footer {
 }
 
 #lightbox {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   background-color: rgba(0, 0, 0, 0.8);
   display: none;
 }
 
 #lightbox.active {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }

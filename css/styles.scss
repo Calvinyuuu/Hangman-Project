@@ -15,14 +15,14 @@ html {
     box-sizing: inherit;
 }
 
-@mixin default-popup-box($horzShadow, $vertShadow, $blur, $colour, $background){
+@mixin default-popup-box($horzShadow, $vertShadow, $blur, $colour){
     box-shadow: $horzShadow, $vertShadow, $blur, $colour;
-    background-image: url($background);
+
 }
-@mixin width-height-margin($width, $height, $margin){
+@mixin width-height-margin($width, $height, $marginX, $marginY){
     width: $width;
     height: $height;
-    $margin: $margin;
+    margin: $marginX $marginY;
 }
 @mixin flexbox-properties($display, $alignItems, $justifyContent){
     display: $display;
@@ -37,12 +37,11 @@ html {
     left: $fromLeft;
     z-index: $zIndex;
 };
-@mixin popup-properties-styling($opacity, $fontSize, $backgroundColor, $borderColor, $fontSize){
+@mixin popup-properties-styling($opacity, $fontSize, $backgroundColor, $borderColor){
     opacity: $opacity;
     font-size: $fontSize;
     background-color: $backgroundColor;
     border: solid, 1px, $borderColor;
-    font-size: $fontSize;
 };
 
 header{
@@ -76,23 +75,23 @@ footer{
 //$width, $height, $margin
 //$display, $alignItems, $justifyContent
 //$width, $height, $pos, $fromTop, $fromLeft, $zIndex
-//$opacity, $fontSize, $backgroundColor, $borderColor, $fontSize
+//$opacity, $fontSize, $backgroundColor, $borderColor
 .disclaimer{
     color:white; 
     @include default-popup-box(0px, 0px, 10px, darkgrey);
     @include popup-properties-position(400px, auto, absolute, 20%, 38%, 1001);
-    @include popup-properties-styling(1, 25px, plum, black, 25px);
-    pointer-events: none;
+    @include popup-properties-styling(1, 25px, plum, black);
+    padding: 10px
 }
 .post_game_screen{
     @include popup-properties-position(600px, 480px, absolute, 12%, 32%, 1001);
-    @include popup-properties-styling(0, 30px, white, black, 30px);
+    @include popup-properties-styling(0, 30px, white, black);
     text-align: center;
 
     //default background
-    @include default-popup-box(0, 0, 20px, white, "../pictures/mistake_00.png");
-    @include flexbox-properties(flex, center);
-
+    @include default-popup-box(0, 0, 20px, white);
+    @include flexbox-properties(flex, center, inherit);
+    background-image: url(../pictures/mistake_00.png);
     flex-direction: column;
     background-size: contain;
     pointer-events: none;
@@ -109,8 +108,7 @@ footer{
 
 .keyboard_container button{
     @include flexbox-properties(flex, center, center);
-    @include width-height-margin(48px, 48px, 3px 13px);
-
+    @include width-height-margin(48px, 48px, 3px, 13px);
     border-radius: 15px;
     background-image: url(../pictures/scratch_button_02.png);
     font-size: 40px;
