@@ -1,3 +1,5 @@
+//link to github    https://github.com/Calvinyuuu/final-project
+
 
 //global variable declarations
 let wordToBeGuessed;
