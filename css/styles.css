@@ -32,8 +32,6 @@ button {
 img {
   max-width: 100%;
   height: auto;
-  margin: none;
-  padding: none;
 }
 
 footer {
@@ -42,7 +40,7 @@ footer {
 
 .disclaimer {
   color: white;
-  box-shadow: 0px, 0px, 10px, darkgrey;
+  box-shadow: 0px 0px 10px darkgrey;
   width: 400px;
   height: auto;
   position: absolute;
@@ -52,7 +50,7 @@ footer {
   opacity: 1;
   font-size: 25px;
   background-color: plum;
-  border: solid, 1px, black;
+  border: solid 1px black;
   padding: 10px;
 }
 
@@ -66,9 +64,9 @@ footer {
   opacity: 0;
   font-size: 30px;
   background-color: white;
-  border: solid, 1px, black;
+  border: solid 1px black;
   text-align: center;
-  box-shadow: 0, 0, 20px, white;
+  box-shadow: 0 0 20px white;
   display: flex;
   align-items: center;
   justify-content: inherit;

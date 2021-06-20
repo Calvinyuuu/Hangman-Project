@@ -16,7 +16,7 @@ html {
 }
 
 @mixin default-popup-box($horzShadow, $vertShadow, $blur, $colour){
-    box-shadow: $horzShadow, $vertShadow, $blur, $colour;
+    box-shadow: $horzShadow $vertShadow $blur $colour;
 
 }
 @mixin width-height-margin($width, $height, $marginX, $marginY){
@@ -41,7 +41,7 @@ html {
     opacity: $opacity;
     font-size: $fontSize;
     background-color: $backgroundColor;
-    border: solid, 1px, $borderColor;
+    border: solid 1px $borderColor;
 };
 
 header{
@@ -65,8 +65,8 @@ button{
 img{
     max-width: 100%;
     height: auto;
-    margin: none;
-    padding: none;
+
+
 }
 footer{
     text-align: center;
@@ -81,7 +81,7 @@ footer{
     @include default-popup-box(0px, 0px, 10px, darkgrey);
     @include popup-properties-position(400px, auto, absolute, 20%, 38%, 1001);
     @include popup-properties-styling(1, 25px, plum, black);
-    padding: 10px
+    padding: 10px;
 }
 .post_game_screen{
     @include popup-properties-position(600px, 480px, absolute, 12%, 32%, 1001);

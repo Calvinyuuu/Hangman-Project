@@ -201,7 +201,7 @@ function fade(){
 //closes the disclaimer
 disclaimerButton.addEventListener('click', ()=>{
     disclaimer.style.opacity = '0';
-    disclaimerButton.style.pointerEvents = 'none';
+    disclaimer.style.pointerEvents = 'none';
     lightbox.classList.remove('active');
 });
 
