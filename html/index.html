@@ -12,18 +12,20 @@
 <body>
     <div class="container">
         <header>
-            <h2>DDLC inspiried Hangman</h2>
+            <h1>Doki Doki Literature Club [DDLC] inspiried Hangman</h1>
         </header>
         <main>
             <section>
-                <section class="disclaimer">
+                <section id="disclaimer" class="disclaimer">
                     <h2>Disclaimer </h2>
                     
-                    <p>This game is meant for people ages 13+. It is not a game meant for people experiencing depression or suicide. All characters in this game are fictional and is meant to only be a front to how this game of hangman can play out. If you are experiencing any form of depression or thoughts of suicide, please contact a help line.</p>
-                    <button class="close_button">I Acknowledge</button>
+                    <p>This game is meant for people ages 13+. It is not a game meant for people experiencing depression or suicide. All characters in this game are fictional and is meant to only be a front to show this game of hangman can play out. If you are experiencing any form of depression or thoughts of suicide, please contact a help line.</p>
+                    <button id="disclaimer_close">I Acknowledge</button>
                 </section>
+
                 <section id="post_game_screen" class="post_game_screen">
                     <h2 id="post_game_placeholder">placeholder</h2>
+                    <p id="display_word"></p>
                     <button id="close_button">Play again?</button>
                 </section>
 
@@ -32,12 +34,15 @@
                     <img src="../pictures/mistake_00.png" alt="background" id="picture">
                 </figure>
 
+                <div id="hint" class="hint_container"></div>
+
                 <div class="information_container">
                     <p id="underscore"></p>
                     <p id="errors">Incorrect Guesses 0/6</p>
                 </div>
-                <div id="hint" class="hint_container"></div>
+
                 <div id="keyboard" class="keyboard_container"></div>
+
                 <section class="instructions">
                     <h3>Instructions</h3>
                     <p>This is a simple hangman game. With a hint and a number of guesses, click on a button of your choice to guess which letters are in the given word. After 6 incorrect guesses, it's a gameover. Have fun!</p>

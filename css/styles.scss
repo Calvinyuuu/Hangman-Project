@@ -1,3 +1,4 @@
+
 $primary_color_gradient:rgba(148,187,233,1);
 $secondary_color_gradient:rgba(238,174,202,1);
 
@@ -14,12 +15,45 @@ html {
     box-sizing: inherit;
 }
 
+@mixin default-popup-box($horzShadow, $vertShadow, $blur, $colour, $background){
+    box-shadow: $horzShadow, $vertShadow, $blur, $colour;
+    background-image: url($background);
+}
+@mixin width-height-margin($width, $height, $margin){
+    width: $width;
+    height: $height;
+    $margin: $margin;
+}
+@mixin flexbox-properties($display, $alignItems, $justifyContent){
+    display: $display;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+};
+@mixin popup-properties-position($width, $height, $pos, $fromTop, $fromLeft, $zIndex){
+    width: $width;
+    height: $height;
+    position: $pos;
+    top: $fromTop;
+    left: $fromLeft;
+    z-index: $zIndex;
+};
+@mixin popup-properties-styling($opacity, $fontSize, $backgroundColor, $borderColor, $fontSize){
+    opacity: $opacity;
+    font-size: $fontSize;
+    background-color: $backgroundColor;
+    border: solid, 1px, $borderColor;
+    font-size: $fontSize;
+};
+
 header{
     display: flex;
     justify-content: center;
 }
 button{
     font-family: 'Amatic SC', cursive;
+    border-radius: 15px;
+    height: 40px;
+    font-size: 30px;
 }
 
 .container{
@@ -38,40 +72,45 @@ img{
 footer{
     text-align: center;
 }
-
+//$horzShadow, $vertShadow, $blur, $colour, $background
+//$width, $height, $margin
+//$display, $alignItems, $justifyContent
+//$width, $height, $pos, $fromTop, $fromLeft, $zIndex
+//$opacity, $fontSize, $backgroundColor, $borderColor, $fontSize
 .disclaimer{
-    width:300px;
-    padding:10px;
-    background-color: indianred;
-    color:white;
-    border:solid 1px black;
-    box-shadow:0px 0px 5px yellow, 5px 5px 5px black;
-    position:absolute;
-    top:40%;
-    left:45%;
-    transform:translate(-50%, -50%);
-    opacity:0;
+    color:white; 
+    @include default-popup-box(0px, 0px, 10px, darkgrey);
+    @include popup-properties-position(400px, auto, absolute, 20%, 38%, 1001);
+    @include popup-properties-styling(1, 25px, plum, black, 25px);
+    pointer-events: none;
 }
 .post_game_screen{
-    opacity: 0;
-    width: 600px;
-    height: 480px;
-    border: solid, 1px, black;
-    position: absolute;
-    background-color: white;
-    top: 12%;
-    left: 32%;
+    @include popup-properties-position(600px, 480px, absolute, 12%, 32%, 1001);
+    @include popup-properties-styling(0, 30px, white, black, 30px);
     text-align: center;
-    box-shadow:0px 0px 15px darkgrey, 15px 15px 15px black;
-    background-image: url(../pictures/mistake_06.png);
+
+    //default background
+    @include default-popup-box(0, 0, 20px, white, "../pictures/mistake_00.png");
+    @include flexbox-properties(flex, center);
+
+    flex-direction: column;
+    background-size: contain;
+    pointer-events: none;
 }
+.post_game_screen p{
+    color: red;
+    background-color: rgba(0,0,0,0.8);
+    width: auto;
+    border-radius: 10px;
+}
+.post_game_screen button{
+    width: auto;
+}
+
 .keyboard_container button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3px 13px;
-    width: 48px;
-    height: 48px;
+    @include flexbox-properties(flex, center, center);
+    @include width-height-margin(48px, 48px, 3px 13px);
+
     border-radius: 15px;
     background-image: url(../pictures/scratch_button_02.png);
     font-size: 40px;
@@ -85,12 +124,24 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    font-size: x-large;
+    font-size: 30px;
     font-weight: bold;
 }
 .hint_container{
     display: flex;
     justify-content: center;
-    font-size: large;
+    font-size: 30px;
+}
+.instructions{
+    font-size: 30px;
 }
 
+#lightbox{
+    @include popup-properties-position(100%, 100%, fixed, 0, 0, 1000);
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+}
+
+#lightbox.active{
+    @include flexbox-properties(flex, center, center);
+}
